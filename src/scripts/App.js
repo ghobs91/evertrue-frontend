@@ -45,8 +45,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <GenInfo genInfoList={this.state.genInfoList}/>
-        <Grouped groupedObjectsList={this.state.groupedObjectsList}/> */}
+        <GenInfo genInfoList={this.state.genInfoList}/>
+        <Grouped groupedObjectsList={this.state.groupedObjectsList}/>
       </div>
     );
   }
