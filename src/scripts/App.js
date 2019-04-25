@@ -46,6 +46,7 @@ class App extends Component {
     return (
       <div>
         <GenInfo genInfoList={this.state.genInfoList}/>
+        <br></br>
         <Grouped groupedObjectsList={this.state.groupedObjectsList}/>
       </div>
     );

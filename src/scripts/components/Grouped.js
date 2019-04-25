@@ -5,6 +5,13 @@ class Grouped extends Component {
     return (
       <div>
         Grouped
+        {this.props.groupedObjectsList.map(groupedObjectElement => {
+          return (
+            <div>
+              {groupedObjectElement.name}
+            </div>
+          );
+        })}
       </div>
     );
   }
