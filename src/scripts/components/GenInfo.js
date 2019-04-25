@@ -5,6 +5,13 @@ class GenInfo extends Component {
     return (
       <div>
         GenInfo
+        {this.props.genInfoList.map(genInfoElement => {
+              return (
+                <div>
+                  {genInfoElement.name}
+                </div>
+              );
+            })}
       </div>
     );
   }
