@@ -1,5 +1,7 @@
 import React from 'react';
+import data from '../../schema.json'
 
+console.log(data);
 const App = () => {
   return (
     <div>
