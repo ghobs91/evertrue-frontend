@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import data from '../../schema.json'
-import GenInfo from './components/GenInfo';
-import Grouped from './components/Grouped';
+import GenInfo from './components/SideMenu/GenInfo';
+import Grouped from './components/SideMenu/Grouped';
 
 class App extends Component {
   constructor(props) {
