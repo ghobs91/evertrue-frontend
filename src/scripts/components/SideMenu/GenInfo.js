@@ -7,7 +7,7 @@ class GenInfo extends Component {
         GenInfo
         {this.props.genInfoList.map(genInfoElement => {
               return (
-                <div>
+                <div onClick={this.handleClick}>
                   {genInfoElement.name}
                 </div>
               );

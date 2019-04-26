@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
-import data from '../../schema.json'
-import GenInfo from './components/SideMenu/GenInfo';
-import Grouped from './components/SideMenu/Grouped';
+import data from '../../schema.json';
+import SideMenuContainer from './components/SideMenu/SideMenuContainer';
+import PaneViewContainer from './components/PaneView/PaneViewContainer';
+import styled from 'styled-components';
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       genInfoList: [],
-      groupedObjectsList: []
+      groupedObjectsList: [],
+      data: []
     };
   }
 
@@ -37,18 +44,18 @@ class App extends Component {
     // Set the state objects for both to their respective arrays, to be passed to respective components for rendering different parts of side menu
     this.setState({
       genInfoList,
-      groupedObjectsList
+      groupedObjectsList,
+      data
     });
 
   }
 
   render() {
     return (
-      <div>
-        <GenInfo genInfoList={this.state.genInfoList}/>
-        <br></br>
-        <Grouped groupedObjectsList={this.state.groupedObjectsList}/>
-      </div>
+      <MainContainer>
+        <SideMenuContainer genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <PaneViewContainer data={this.state.data}/>
+      </MainContainer>
     );
   }
 }
