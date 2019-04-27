@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <MainContainer>
         <SideMenuContainer genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
-        <PaneViewContainer data={this.state.data}/>
+        <PaneViewContainer genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
       </MainContainer>
     );
   }

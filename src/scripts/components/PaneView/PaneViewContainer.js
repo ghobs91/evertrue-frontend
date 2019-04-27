@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import ObjectCard from './ObjectCard'
+import GenInfoCardContainer from './GenInfoCardContainer';
+import GroupedObjectsCardContainer from './GroupedObjectsCardContainer';
 
 const Pane = styled.div `
   display: flex;
@@ -13,14 +14,8 @@ class SideMenuContainer extends Component {
   render() {
     return (
       <Pane>
-
-          Pane
-          {this.props.data.map(object => {
-            return (
-              <ObjectCard name = {object.name}/>
-            );
-          })}
-        
+        <GenInfoCardContainer genInfoList={this.props.genInfoList}/>
+        <GroupedObjectsCardContainer groupedObjectsList={this.props.groupedObjectsList}/>
       </Pane>
     );
   }
