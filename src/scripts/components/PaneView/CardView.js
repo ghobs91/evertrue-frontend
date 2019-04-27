@@ -16,7 +16,21 @@ class CardView extends Component {
     return (
       <CardPane>
         <h2>Card</h2>
+        
+        <h4>Type</h4>
+        {this.props.type}
+
+        <h4>Usage</h4>
+        {this.props.usage}
+
+        <h4>EverTrueFieldName</h4>
         {this.props.name}
+
+        <br></br>
+
+        
+
+        
       </CardPane>
     );
   }

@@ -18,7 +18,9 @@ class App extends Component {
       genInfoList: [],
       groupedObjectsList: [],
       cardInfo: {
-        name: data[0].name
+        name: data[0].name,
+        type: data[0].dataType,
+        usage: data[0].app_keys
       },
       data: []
     };
@@ -57,12 +59,14 @@ class App extends Component {
 
   }
 
-  changeInfoList(rowName){
-    console.log("name were about to change it to: " + rowName)
+  changeInfoList(rowName, dataType, usage){
+    console.log("appkeys were about to change it to: " + usage)
     //change the card rendered based on which row is clicked
     this.setState({
       cardInfo: {
-        name: rowName
+        name: rowName,
+        type: dataType,
+        usage: usage
       }
     })
   }
@@ -71,7 +75,7 @@ class App extends Component {
     return (
       <MainContainer>
         <SideMenuContainer changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
-        <CardView name = {this.state.cardInfo.name}/>
+        <CardView name = {this.state.cardInfo.name} type = {this.state.cardInfo.type} usage = {this.state.cardInfo.usage}/>
         {/* <PaneViewContainer  genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/> */}
       </MainContainer>
     );
