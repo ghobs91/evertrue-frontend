@@ -35,7 +35,7 @@ class SideMenuContainer extends Component {
             <h2>GenInfo</h2>
             {this.props.genInfoList.map(genInfoElement => {
               return (
-                <SideMenuRow onClick={this.props.changeInfoList(genInfoElement.name)}>
+                <SideMenuRow onClick={() => { this.props.changeInfoList(genInfoElement.name) }}>
                   {genInfoElement.name}
                 </SideMenuRow>
               );
@@ -44,7 +44,7 @@ class SideMenuContainer extends Component {
 
           <br/><br/>
           
-          <div>
+          {/* <div>
             <h2>Grouped</h2>
             {this.props.groupedObjectsList.map(groupedObjectElement => {
               return (
@@ -53,7 +53,7 @@ class SideMenuContainer extends Component {
                 </SideMenuRow>
               );
             })}
-          </div>
+          </div> */}
         </SideMenu>
         
       </SideMenuPane>

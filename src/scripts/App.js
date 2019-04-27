@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import data from '../../schema.json';
 import SideMenuContainer from './components/SideMenu/SideMenuContainer';
 import PaneViewContainer from './components/PaneView/PaneViewContainer';
+import CardView from './components/PaneView/CardView';
 import styled from 'styled-components';
 
 const MainContainer = styled.div`
@@ -16,9 +17,12 @@ class App extends Component {
     this.state = {
       genInfoList: [],
       groupedObjectsList: [],
-      cardInfo: data[0],
+      cardInfo: {
+        name: data[0].name
+      },
       data: []
     };
+    this.changeInfoList = this.changeInfoList.bind(this)
   }
 
   
@@ -53,19 +57,22 @@ class App extends Component {
 
   }
 
-  changeInfoList(idx){
+  changeInfoList(rowName){
+    console.log("name were about to change it to: " + rowName)
     //change the card rendered based on which row is clicked
-    
-    // this.setState({
-    //   cardInfo: data[idx]
-    // })
+    this.setState({
+      cardInfo: {
+        name: rowName
+      }
+    })
   }
 
   render() {
     return (
       <MainContainer>
         <SideMenuContainer changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
-        <PaneViewContainer  genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <CardView name = {this.state.cardInfo.name}/>
+        {/* <PaneViewContainer  genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/> */}
       </MainContainer>
     );
   }
