@@ -9,16 +9,19 @@ const MainContainer = styled.div`
   justify-content: space-between;
 `;
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       genInfoList: [],
       groupedObjectsList: [],
+      cardInfo: data[0],
       data: []
     };
   }
 
+  
   componentDidMount() {
     // Create a new array based on current state:
     let genInfoList = [...this.state.genInfoList];
@@ -50,11 +53,19 @@ class App extends Component {
 
   }
 
+  changeInfoList(idx){
+    //change the card rendered based on which row is clicked
+    
+    // this.setState({
+    //   cardInfo: data[idx]
+    // })
+  }
+
   render() {
     return (
       <MainContainer>
-        <SideMenuContainer genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
-        <PaneViewContainer genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <SideMenuContainer changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <PaneViewContainer  genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
       </MainContainer>
     );
   }
