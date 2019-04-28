@@ -1,37 +1,46 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const CardPane = styled.div `
-  display: flex;
-  flex-direction: column;
-  border: 1px lightgray solid;
+const CardPaneContainer = styled.div `
   width: 70%;
   padding: 1rem;
   background-color: #f2f2f2;
+`;
+
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px lightgray solid;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+`;
+
+const UsageLabel = styled.div`
+  padding: 1rem;
+  border: 1px lightgray solid;
+  
 `;
 
 class CardView extends Component {
   
   render() {
     return (
-      <CardPane>
-        <h2>Card</h2>
+      <CardPaneContainer>
+        <Card>
+          <h2>Pane View</h2>
         
-        <h4>Type</h4>
-        {this.props.type}
+          <h4>Type</h4>
+          {this.props.type}
 
-        <h4>Usage</h4>
-        {this.props.usage}
+          <h4>Usage</h4>
+          {this.props.usage}
 
-        <h4>EverTrueFieldName</h4>
-        {this.props.name}
-
-        <br></br>
-
+          <h4>EverTrueFieldName</h4>
+          {this.props.name}
+        </Card>
         
-
-        
-      </CardPane>
+      </CardPaneContainer>
     );
   }
 }

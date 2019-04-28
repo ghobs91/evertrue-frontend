@@ -10,7 +10,6 @@ const MainContainer = styled.div`
   justify-content: space-between;
 `;
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -74,9 +73,8 @@ class App extends Component {
   render() {
     return (
       <MainContainer>
-        <SideMenuContainer changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <SideMenuContainer handleClick = {this.handleClick} changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
         <CardView name = {this.state.cardInfo.name} type = {this.state.cardInfo.type} usage = {this.state.cardInfo.usage}/>
-        {/* <PaneViewContainer  genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/> */}
       </MainContainer>
     );
   }
