@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import data from '../../schema.json';
 import SideMenuContainer from './components/SideMenu/SideMenuContainer';
-import PaneViewContainer from './components/PaneView/PaneViewContainer';
 import CardView from './components/PaneView/CardView';
 import styled from 'styled-components';
 

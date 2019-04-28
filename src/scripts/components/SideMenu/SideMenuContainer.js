@@ -25,11 +25,9 @@ const SideMenuRow = styled.div `
 `;
 
 class SideMenuContainer extends Component {
-  
   render() {
     return (
       <SideMenuPane>
-
         <SideMenu>
           <div>
             <h2>GenInfo</h2>
@@ -53,7 +51,6 @@ class SideMenuContainer extends Component {
             })}
           </div>
         </SideMenu>
-        
       </SideMenuPane>
     );
   }
