@@ -49,7 +49,7 @@ class SideMenuContainer extends Component {
             <h2>Grouped</h2>
             {this.props.groupedObjectsList.map(groupedObjectElement => {
               return (
-                <GroupedRowContainer onClick={() => { this.props.changeInfoList(groupedObjectElement.name) }} parentName = {groupedObjectElement.name} properties = {groupedObjectElement.containing_object.properties}/>
+                <GroupedRowContainer changeInfoList={this.props.changeInfoList} parentName = {groupedObjectElement.name} properties = {groupedObjectElement.containing_object.properties}/>
               );
             })}
           </div>
