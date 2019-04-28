@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import GroupedRowContainer from './GroupedRowContainer'
 
 const SideMenuPane = styled.div `
   display: flex;
@@ -48,9 +49,7 @@ class SideMenuContainer extends Component {
             <h2>Grouped</h2>
             {this.props.groupedObjectsList.map(groupedObjectElement => {
               return (
-                <SideMenuRow onClick={() => { this.props.changeInfoList(groupedObjectElement.name) }}>
-                  {groupedObjectElement.name}
-                </SideMenuRow>
+                <GroupedRowContainer onClick={() => { this.props.changeInfoList(groupedObjectElement.name) }} parentName = {groupedObjectElement.name} properties = {groupedObjectElement.containing_object.properties}/>
               );
             })}
           </div>
