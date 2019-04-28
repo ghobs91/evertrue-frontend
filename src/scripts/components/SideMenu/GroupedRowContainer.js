@@ -38,7 +38,7 @@ class SideMenuContainer extends Component {
             
             {this.props.properties.map(propertyElement => {
               return (
-                <NestedProperty onClick={() => { this.props.changeInfoList(propertyElement.name, propertyElement.data_type, propertyElement.app_keys.join(', '))}} >
+                <NestedProperty onClick={() => { this.props.changeInfoList(propertyElement.name, propertyElement.data_type, propertyElement.app_keys)}} >
                   {propertyElement.name}
                 </NestedProperty>
               );

@@ -22,7 +22,6 @@ const SideMenu = styled.div `
 
 const SideMenuRow = styled.div `
   margin: 1rem;
-  color: gray;
 `;
 
 class SideMenuContainer extends Component {
@@ -36,7 +35,7 @@ class SideMenuContainer extends Component {
             <h2>GenInfo</h2>
             {this.props.genInfoList.map(genInfoElement => {
               return (
-                <SideMenuRow onClick={() => { this.props.changeInfoList(genInfoElement.name, genInfoElement.data_type, genInfoElement.app_keys.join(', '))}}>
+                <SideMenuRow onClick={() => { this.props.changeInfoList(genInfoElement.name, genInfoElement.data_type, genInfoElement.app_keys)}}>
                   {genInfoElement.name}
                 </SideMenuRow>
               );

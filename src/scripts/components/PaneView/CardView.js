@@ -17,9 +17,14 @@ const Card = styled.div`
 `;
 
 const UsageLabel = styled.div`
-  padding: 1rem;
+  padding: .5rem;
   border: 1px lightgray solid;
-  
+  margin-right: .5rem;
+  border-radius: 5px;
+`;
+
+const UsageContainer = styled.div`
+  display: flex;
 `;
 
 class CardView extends Component {
@@ -34,7 +39,16 @@ class CardView extends Component {
           {this.props.type}
 
           <h4>Usage</h4>
-          {this.props.usage}
+          <UsageContainer>
+            {this.props.usage.map(usageElement => {
+              return (
+                <UsageLabel>
+                  {usageElement}
+                </UsageLabel>
+              );
+            })}
+          </UsageContainer>
+          
 
           <h4>EverTrueFieldName</h4>
           {this.props.name}
