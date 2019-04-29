@@ -8,6 +8,12 @@ const NestedProperty = styled.div`
 const ParentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  margin: .5rem;
+  padding: .5rem;
+  &:hover {
+    background: #ededed;
+  }
+  border-radius: 5px;
 `;
 
 const NestedContainer = styled.div`

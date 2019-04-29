@@ -18,9 +18,10 @@ const Card = styled.div`
 
 const UsageLabel = styled.div`
   padding: .5rem;
-  border: 1px lightgray solid;
   margin-right: .5rem;
   border-radius: 5px;
+  background-color: #c4ffca;
+  color: #12cc24;
 `;
 
 const UsageContainer = styled.div`

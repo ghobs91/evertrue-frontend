@@ -6,7 +6,7 @@ const SideMenuPane = styled.div `
   display: flex;
   flex-direction: column;
   border: 1px lightgray solid;
-  background-color: lightgray;
+  background-color: white;
   width: 30%;
 `;
 
@@ -15,13 +15,17 @@ const SideMenu = styled.div `
   flex-direction: column;
   margin: 1rem;
   padding: 1rem;
-  border: 1px lightgray solid;
   border-radius: 5px;
   background-color: white;
 `;
 
 const SideMenuRow = styled.div `
   margin: 1rem;
+  padding: .5rem;
+  &:hover {
+    background: #ededed;
+  }
+  border-radius: 5px;
 `;
 
 class SideMenuContainer extends Component {
