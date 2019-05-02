@@ -16,28 +16,33 @@ class App extends Component {
     this.state = {
       genInfoList: [],
       groupedObjectsList: [],
+      // This obj stores data for cases where there's only one property in the respective object being loaded into the PaneView
       cardInfo: {
         name: data[0].name,
         type: data[0].dataType,
         usage: data[0].app_keys
       },
-      data: []
+      data: [],
+      active: false,
+      // This obj stores data in cases where there are multiple properties to render in the PaneView
+      groupedCardInfo: [{
+        name: "placeholder name"
+      }]
     };
     this.changeInfoList = this.changeInfoList.bind(this)
+    this.handleGroupedClick = this.handleGroupedClick.bind(this)
   }
 
   
   componentDidMount() {
-    // Create a new array based on current state:
+    // Create a new array based on current state, broken down by single property and multi property elements
     let genInfoList = [...this.state.genInfoList];
     let groupedObjectsList = [...this.state.groupedObjectsList];
   
     // For every obj in schema, if it has a containing_object property, add it to groupedObjectsList array
     // Otherwise, add it to genInfoList array
     for (var i=0; i<data.length; i++ ){
-      console.log("data object currently looking at: " + data[i])
       let schemaObject = data[i]
-
       if (schemaObject["containing_object"]){
         groupedObjectsList.push(data[i]);
       }
@@ -45,9 +50,6 @@ class App extends Component {
         genInfoList.push(data[i])
       }
     }
-
-    console.log("groupedObjectsList length: " + groupedObjectsList.length)
-    console.log("genInfoList length: " + genInfoList.length)
 
     // Set the state objects for both to their respective arrays, to be passed to respective components for rendering different parts of side menu
     this.setState({
@@ -70,11 +72,23 @@ class App extends Component {
     })
   }
 
+  handleGroupedClick(properties){
+    console.log("toggle click!")
+
+    this.setState((prevState, props) => ({
+      active: prevState.active,
+      groupedCardInfo: properties
+    }));
+
+    // console.log("the active state is now set to: " + this.state.active)
+    console.log("the length of properties object were setting state to: " + properties.length)
+  }
+
   render() {
     return (
       <MainContainer>
-        <SideMenuContainer handleClick = {this.handleClick} changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
-        <CardView name = {this.state.cardInfo.name} type = {this.state.cardInfo.type} usage = {this.state.cardInfo.usage}/>
+        <SideMenuContainer active={this.state.active} handleGroupedClick = {this.handleGroupedClick} changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <CardView name = {this.state.cardInfo.name} type = {this.state.cardInfo.type} usage = {this.state.cardInfo.usage} groupedCardInfo = {this.state.groupedCardInfo}/>
       </MainContainer>
     );
   }

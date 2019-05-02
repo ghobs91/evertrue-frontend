@@ -22,26 +22,13 @@ const NestedContainer = styled.div`
 `;
 
 class SideMenuContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        active: false
-    };
-    this.handleClick = this.handleClick.bind(this)
-  }
 
-  handleClick(){
-    console.log("toggle click!")
-    this.setState({active : !this.state.active});
-  }
-  
   render() {
-    if (this.state.active == true){
+    if (this.props.active == true){
       return (
         <ParentContainer>
-          <p onClick={this.handleClick}>{this.props.parentName}</p>        
+          <p onClick={() => { this.props.handleGroupedClick(this.props.properties) }}>{this.props.parentName}</p>
           <NestedContainer>
-            
             {this.props.properties.map(propertyElement => {
               return (
                 <NestedProperty onClick={() => { this.props.changeInfoList(propertyElement.name, propertyElement.data_type, propertyElement.app_keys)}} >
@@ -57,7 +44,7 @@ class SideMenuContainer extends Component {
     else {
       return (
         <ParentContainer>
-          <p onClick={this.handleClick}>{this.props.parentName}</p>        
+          <p onClick={this.props.handleGroupedClick}>{this.props.parentName}</p>        
         </ParentContainer>
       );
     }

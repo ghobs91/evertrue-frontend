@@ -14,6 +14,7 @@ const Card = styled.div`
   background-color: white;
   padding: 1rem;
   border-radius: 5px;
+  margin-bottom: 1rem;
 `;
 
 const UsageLabel = styled.div`
@@ -31,32 +32,69 @@ const UsageContainer = styled.div`
 class CardView extends Component {
   
   render() {
-    return (
-      <CardPaneContainer>
-        <Card>
+
+    if (this.props.groupedCardInfo.length > 1){
+
+      console.log("first properties object that cardView receives: " + this.props.groupedCardInfo[0]["name"])
+
+
+      return (
+        <CardPaneContainer>
           <h2>Pane View</h2>
-        
-          <h4>Type</h4>
-          {this.props.type}
 
-          <h4>Usage</h4>
-          <UsageContainer>
-            {this.props.usage.map(usageElement => {
-              return (
-                <UsageLabel>
-                  {usageElement}
-                </UsageLabel>
-              );
-            })}
-          </UsageContainer>
+          {this.props.groupedCardInfo.map(groupedCardElement => {
+            return (
+              <Card>
+                <h4>Type</h4>
+                {groupedCardElement.data_type}
+
+                <h4>Usage</h4>
+                <UsageContainer>
+                  {this.props.usage.map(usageElement => {
+                    return (
+                      <UsageLabel>
+                        {usageElement}
+                      </UsageLabel>
+                    );
+                  })}
+                </UsageContainer>
+                <h4>EverTrueFieldName</h4>
+                {groupedCardElement.name}
+              </Card>
+            );
+          })}
           
+        </CardPaneContainer>
+      );
+      
+    }
+    
+    else {
+      console.log("groupedCardInfo not populated yet")
+      return (
+        <CardPaneContainer>
+          <Card>
+            <h2>Pane View</h2>
+          
+            <h4>Type</h4>
+            {this.props.type}
 
-          <h4>EverTrueFieldName</h4>
-          {this.props.name}
-        </Card>
-        
-      </CardPaneContainer>
-    );
+            <h4>Usage</h4>
+            <UsageContainer>
+              {this.props.usage.map(usageElement => {
+                return (
+                  <UsageLabel>
+                    {usageElement}
+                  </UsageLabel>
+                );
+              })}
+            </UsageContainer>
+            <h4>EverTrueFieldName</h4>
+            {this.props.name}
+          </Card>
+        </CardPaneContainer>
+      );
+    }
   }
 }
 
