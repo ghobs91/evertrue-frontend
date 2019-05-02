@@ -73,15 +73,15 @@ class App extends Component {
   }
 
   handleGroupedClick(properties){
-    console.log("toggle click!")
+      console.log("toggle click!")
 
-    this.setState((prevState, props) => ({
-      active: prevState.active,
-      groupedCardInfo: properties
-    }));
+      this.setState((prevState, props) => ({
+        active: !prevState.active,
+        groupedCardInfo: properties
+      }));
 
-    // console.log("the active state is now set to: " + this.state.active)
-    console.log("the length of properties object were setting state to: " + properties.length)
+      // console.log("the active state is now set to: " + this.state.active)
+      console.log("the length of properties object were setting state to: " + properties.length)
   }
 
   render() {

@@ -21,7 +21,7 @@ const NestedContainer = styled.div`
   flex-direction: column;
 `;
 
-class SideMenuContainer extends Component {
+class GroupedMenuContainer extends Component {
 
   render() {
     if (this.props.active == true){
@@ -43,8 +43,8 @@ class SideMenuContainer extends Component {
 
     else {
       return (
-        <ParentContainer>
-          <p onClick={this.props.handleGroupedClick}>{this.props.parentName}</p>        
+        <ParentContainer onClick={() => this.props.handleGroupedClick(this.props.properties)}>
+          <p>{this.props.parentName}</p>        
         </ParentContainer>
       );
     }
@@ -52,4 +52,4 @@ class SideMenuContainer extends Component {
   }
 }
 
-export default SideMenuContainer;
+export default GroupedMenuContainer;

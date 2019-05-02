@@ -32,22 +32,19 @@ const UsageContainer = styled.div`
 class CardView extends Component {
   
   render() {
-
+    // If multiple cards will be rendered
     if (this.props.groupedCardInfo.length > 1){
 
       console.log("first properties object that cardView receives: " + this.props.groupedCardInfo[0]["name"])
 
-
       return (
         <CardPaneContainer>
           <h2>Pane View</h2>
-
           {this.props.groupedCardInfo.map(groupedCardElement => {
             return (
               <Card>
                 <h4>Type</h4>
                 {groupedCardElement.data_type}
-
                 <h4>Usage</h4>
                 <UsageContainer>
                   {this.props.usage.map(usageElement => {
@@ -63,14 +60,13 @@ class CardView extends Component {
               </Card>
             );
           })}
-          
         </CardPaneContainer>
       );
       
     }
-    
+
+    // Only one card will be populated
     else {
-      console.log("groupedCardInfo not populated yet")
       return (
         <CardPaneContainer>
           <Card>
@@ -95,6 +91,7 @@ class CardView extends Component {
         </CardPaneContainer>
       );
     }
+
   }
 }
 
