@@ -69,7 +69,10 @@ class App extends Component {
         name: rowName,
         type: dataType,
         usage: usage
-      }
+      },
+      groupedCardInfo: [{
+        name: "placeholder name"
+      }],
     })
   }
 
