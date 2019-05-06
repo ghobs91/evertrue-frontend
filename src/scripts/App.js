@@ -27,7 +27,8 @@ class App extends Component {
       // This obj stores data in cases where there are multiple properties to render in the PaneView
       groupedCardInfo: [{
         name: "placeholder name"
-      }]
+      }], 
+      activeGroupedMenuItem: null
     };
     this.changeInfoList = this.changeInfoList.bind(this)
     this.handleGroupedClick = this.handleGroupedClick.bind(this)
@@ -72,12 +73,13 @@ class App extends Component {
     })
   }
 
-  handleGroupedClick(properties){
+  handleGroupedClick(properties, parentName){
       console.log("toggle click!")
-
+      console.log("parentName clicked:" + parentName)
       this.setState((prevState, props) => ({
         active: !prevState.active,
-        groupedCardInfo: properties
+        groupedCardInfo: properties,
+        activeGroupedMenuItem: parentName
       }));
 
       // console.log("the active state is now set to: " + this.state.active)
@@ -87,7 +89,7 @@ class App extends Component {
   render() {
     return (
       <MainContainer>
-        <SideMenuContainer active={this.state.active} handleGroupedClick = {this.handleGroupedClick} changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
+        <SideMenuContainer active={this.state.active} activeGroupedMenuItem = {this.state.activeGroupedMenuItem} handleGroupedClick = {this.handleGroupedClick} changeInfoList={this.changeInfoList} genInfoList={this.state.genInfoList} groupedObjectsList={this.state.groupedObjectsList}/>
         <CardView name = {this.state.cardInfo.name} type = {this.state.cardInfo.type} usage = {this.state.cardInfo.usage} groupedCardInfo = {this.state.groupedCardInfo}/>
       </MainContainer>
     );
